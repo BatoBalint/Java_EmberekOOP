@@ -1,9 +1,8 @@
 package hu.petrik.emberekoop;
 
-<<<<<<< HEAD
-public class Emberek {
-
-=======
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -22,6 +21,25 @@ public class Emberek {
          */
     }
 
+    public Emberek(String fajlNev){
+        this.emberLista = new ArrayList<>();
+        try {
+            FileReader fr = new FileReader(fajlNev);
+            BufferedReader br = new BufferedReader(fr);
+            String sor = br.readLine();
+            while (sor != null){
+                String[] adatok = sor.split(";");
+                Ember ember = new Ember(adatok[0], adatok[1], adatok[2]);
+                this.emberLista.add(ember);
+                sor = br.readLine();
+            }
+            br.close();
+            fr.close();
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
     @Override
     public String toString() {
         String s = "";
@@ -30,5 +48,4 @@ public class Emberek {
         }
         return s;
     }
->>>>>>> origin/master
 }
