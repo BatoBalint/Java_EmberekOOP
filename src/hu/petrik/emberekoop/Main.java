@@ -14,6 +14,10 @@ public class Main {
         Emberek emberek = new Emberek(emberTomb);
         Emberek emberek2 = new Emberek("emberek.txt");
         System.out.println(emberek2);
+        System.out.println(emberek2.honapbanSzuletett(12));
+        System.out.println(emberek2.atlagEletkor());
+        System.out.println(emberek2.legfiatalab());
+        System.out.println(emberek2.legidosebb());
 
     }
 
